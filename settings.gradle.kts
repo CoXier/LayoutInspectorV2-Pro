@@ -1,0 +1,1 @@
+rootProject.name = "layout-inspector-v2"
