@@ -1,0 +1,6 @@
+<idea-plugin>
+    <id>com.jianxinli.layout-inspector-v2</id>
+    <name>LayoutInspectorV2</name>
+    <vendor email="justcoxier@gmail.com" url="https://github.com/CoXier">Jianxin Li</vendor>
+    <description>Legacy LayoutInspector using v2 protocol which is 100 faster than default v1 version.</description>
+</idea-plugin>
