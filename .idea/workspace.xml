@@ -5,10 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d288c94a-b507-4141-9bec-c3ea6c131119" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/LayoutInspectorBridge.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/LayoutInspectorCaptureOptions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/LayoutInspectorResult.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/model/ClientWindow.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/model/DisplayInfo.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/model/LayoutFileData.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/model/ViewNode.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/model/ViewNodeTableModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/model/ViewProperty.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/parser/DisplayInfoFactory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/parser/LayoutFileDataParser.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/parser/ViewNodeParser.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/parser/ViewNodeV2Decoder.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/parser/ViewNodeV2Parser.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/parser/ViewPropertyParser.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/AndroidLayoutInspectorService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/EditHandler.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorEditHandler.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorEditor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorEditorPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorFileType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/WindowPickerDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/actions/AndroidRunLayoutInspectorAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/actions/LayoutInspectorAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/actions/LoadOverlayAction.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/actions/SetOverlayAlphaAction.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/impl/AndroidLayoutInspectorServiceImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ptable/LIComponentEditor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ptable/LIEditableItemCellRenderer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ptable/LITableCellEditor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ptable/LITableGroupItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ptable/LITableItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ptable/LITableNameRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ptable/LITableRendererProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ui/LayoutInspectorPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ui/LayoutTreeDefinition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ui/LayoutTreePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ui/PropertiesDefinition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ui/PropertiesTablePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ui/RollOverTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ui/ViewNodeActiveDisplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/ui/ViewNodeTreeRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2/PNameRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2/PTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2/PTableCellEditor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2/PTableCellEditorProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2/PTableCellRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2/PTableCellRendererProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2/PTableDefaultCellRendererProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2/PTableGroupItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2/PTableItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2/PTableModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2/StarState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,17 +111,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/jianxinli/layout-inspector-v2/src/main/java/com/android/tools/property/ptablev2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4632184",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+  </component>
   <component name="RunManager" selected="Gradle.layout-inspector-v2 [runIde]">
     <configuration name="layout-inspector-v2 [patchPluginXml]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -126,6 +193,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669636981082</updated>
       <workItem from="1669636984156" duration="5401000" />
+      <workItem from="1669782457335" duration="8567000" />
     </task>
     <servers />
   </component>

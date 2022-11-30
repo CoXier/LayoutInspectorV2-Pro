@@ -5,10 +5,6 @@ buildscript {
     }
 }
 
-java {
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
-
 plugins {
     id("java")
     id("org.jetbrains.intellij") version "1.10.0"
@@ -28,4 +24,5 @@ dependencies {
 intellij {
     version.set("202.7660.26.42.7486908")
     type.set("AI") // AI means Android Studio
+    plugins.set(listOf("android"))
 }
