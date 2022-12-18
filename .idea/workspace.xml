@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d288c94a-b507-4141-9bec-c3ea6c131119" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +138,8 @@
       <updated>1669636981082</updated>
       <workItem from="1669636984156" duration="5401000" />
       <workItem from="1669782457335" duration="9663000" />
-      <workItem from="1670244061622" duration="2678000" />
+      <workItem from="1670244061622" duration="10752000" />
+      <workItem from="1671280347550" duration="2764000" />
     </task>
     <servers />
   </component>
