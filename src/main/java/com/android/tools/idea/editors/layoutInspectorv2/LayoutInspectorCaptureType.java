@@ -15,19 +15,19 @@
  */
 package com.android.tools.idea.editors.layoutInspectorv2;
 
-import com.android.tools.idea.editors.layoutInspector.LayoutInspectorEditor;
-import com.android.tools.idea.editors.layoutInspector.LayoutInspectorFileType;
+import com.android.layoutinspectorv2.Icons;
 import com.android.tools.idea.profiling.capture.FileCaptureType;
 import com.google.wireless.android.sdk.stats.AndroidStudioEvent.ProfilerCaptureType;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.vfs.VirtualFile;
 import icons.StudioIcons;
 import org.jetbrains.annotations.NotNull;
 
 public class LayoutInspectorCaptureType extends FileCaptureType {
   protected LayoutInspectorCaptureType() {
-    super("Layout Inspector Snapshot", StudioIcons.Shell.Menu.LAYOUT_INSPECTOR, LayoutInspectorFileType.DOT_EXT_LAYOUT_INSPECTOR);
+    super("Layout Inspector Snapshot", Icons.getLogo(), LayoutInspectorFileType.DOT_EXT_LAYOUT_INSPECTOR);
   }
 
   @NotNull

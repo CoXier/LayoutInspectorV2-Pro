@@ -15,7 +15,9 @@
  */
 package com.android.tools.idea.editors.layoutInspectorv2;
 
+import com.android.layoutinspectorv2.Icons;
 import com.intellij.openapi.fileTypes.FileType;
+import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.vfs.VirtualFile;
 import icons.StudioIcons;
 import org.jetbrains.annotations.NotNull;
@@ -25,13 +27,13 @@ import javax.swing.*;
 
 public class LayoutInspectorFileType implements FileType {
   public static final LayoutInspectorFileType INSTANCE = new LayoutInspectorFileType();
-  public static final String EXT_LAYOUT_INSPECTOR = "li";
-  public static final String DOT_EXT_LAYOUT_INSPECTOR = ".li";
+  public static final String EXT_LAYOUT_INSPECTOR = "liv2";
+  public static final String DOT_EXT_LAYOUT_INSPECTOR = ".liv2";
 
   @NotNull
   @Override
   public String getName() {
-    return "Layout Inspector";
+    return "Layout Inspector V2";
   }
 
   @NotNull
@@ -49,7 +51,7 @@ public class LayoutInspectorFileType implements FileType {
   @Nullable
   @Override
   public Icon getIcon() {
-    return StudioIcons.Shell.Menu.LAYOUT_INSPECTOR;
+    return Icons.getLogo();
   }
 
   @Override

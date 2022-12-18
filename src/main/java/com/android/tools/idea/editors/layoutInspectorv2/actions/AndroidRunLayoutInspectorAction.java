@@ -16,6 +16,7 @@
 package com.android.tools.idea.editors.layoutInspectorv2.actions;
 
 import com.android.ddmlib.Client;
+import com.android.layoutinspectorv2.Icons;
 import com.android.tools.idea.editors.layoutInspectorv2.AndroidLayoutInspectorService;
 import com.android.tools.idea.ui.LayoutInspectorSettingsKt;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -26,16 +27,14 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.xdebugger.XDebugSession;
 import com.intellij.xdebugger.XDebuggerManager;
-import icons.StudioIcons;
 import org.jetbrains.android.actions.AndroidProcessChooserDialog;
-import org.jetbrains.android.util.AndroidBundle;
 import org.jetbrains.annotations.Nullable;
 
 public class AndroidRunLayoutInspectorAction extends AnAction {
   public AndroidRunLayoutInspectorAction() {
-    super("Android LayoutInspector V2",
+    super("Layout Inspector V2",
             "V2 protocol is faster than v1.",
-          StudioIcons.Shell.Menu.LAYOUT_INSPECTOR);
+            Icons.getLogo());
   }
 
   @Override

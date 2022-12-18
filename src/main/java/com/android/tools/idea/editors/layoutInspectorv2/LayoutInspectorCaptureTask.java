@@ -125,7 +125,7 @@ public class LayoutInspectorCaptureTask extends Task.Backgroundable {
         OpenFileDescriptor descriptor = new OpenFileDescriptor(myProject, file);
         List<FileEditor> editors = FileEditorManager.getInstance(myProject).openEditor(descriptor, true);
 
-        editors.stream().filter(e -> e instanceof com.android.tools.idea.editors.layoutInspector.LayoutInspectorEditor).findFirst().ifPresent((editor) -> {
+        editors.stream().filter(e -> e instanceof LayoutInspectorEditor).findFirst().ifPresent((editor) -> {
           ((LayoutInspectorEditor)editor).setSources(myClient, myWindow);
         });
       }));

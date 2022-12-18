@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d288c94a-b507-4141-9bec-c3ea6c131119" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/Icons.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/LIV2EditorProvider.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/icon.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/AndroidLayoutInspectorService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/AndroidLayoutInspectorService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorFileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorFileType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/actions/AndroidRunLayoutInspectorAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/actions/AndroidRunLayoutInspectorAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/impl/AndroidLayoutInspectorServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/impl/AndroidLayoutInspectorServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +52,22 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Object" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../.gradle/caches/7.4/generated-gradle-jars/gradle-api-7.4.jar!/org/apache/tools/ant/taskdefs/Definer.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.google.android.studio/android-studio/202.7660.26.42.7486908/5701d6690b53380907df435afbc26ef6651894e/android-studio-202.7660.26.42.7486908/lib/ant/lib/ant.jar!/org/apache/tools/ant/taskdefs/Definer.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.google.android.studio/android-studio/202.7660.26.42.7486908/5701d6690b53380907df435afbc26ef6651894e/android-studio-202.7660.26.42.7486908/lib/javac2.jar!/com/intellij/ant/InstrumentIdeaExtensions.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/org.jetbrains.intellij.plugins/structure-intellij/3.243/5cc807d62e431a98f24263765b7877cd13913842/structure-intellij-3.243-sources.jar!/com/jetbrains/plugin/structure/intellij/plugin/PluginCreator.kt" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,24 +78,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jianxinli/layout-inspector-v2/src/main/java/com/android/tools/property/ptablev2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4632184&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/jianxinli/layout-inspector-v2/src/main/resources/META-INF",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4632184",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
+      <recent name="$PROJECT_DIR$/src/main/resources/icons" />
       <recent name="$PROJECT_DIR$/src/main/java/com/android/tools/property/ptablev2" />
       <recent name="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2" />
       <recent name="$PROJECT_DIR$/src/main/java" />
@@ -139,7 +164,8 @@
       <workItem from="1669636984156" duration="5401000" />
       <workItem from="1669782457335" duration="9663000" />
       <workItem from="1670244061622" duration="10752000" />
-      <workItem from="1671280347550" duration="2764000" />
+      <workItem from="1671280347550" duration="4007000" />
+      <workItem from="1671331428128" duration="8783000" />
     </task>
     <servers />
   </component>
@@ -187,6 +213,11 @@
           <url>file://$PROJECT_DIR$/../gradle-intellij-plugin/src/main/kotlin/org/jetbrains/intellij/dependency/IdeaDependencyManager.kt</url>
           <line>155</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/LIV2EditorProvider.kt</url>
+          <line>13</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint type="kotlin-field">
           <url>jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/org.jetbrains.intellij.plugins/gradle-intellij-plugin/1.10.0/778118ae9a8f4ac87098219ec7c4549d99d3e3a9/gradle-intellij-plugin-1.10.0-sources.jar!/org/jetbrains/intellij/model/ProductInfo.kt</url>

@@ -6,4 +6,18 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
+
+    <actions>
+        <action id="RunV2LegacyLayoutInspector" class="com.android.tools.idea.editors.layoutInspectorv2.actions.AndroidRunLayoutInspectorAction">
+            <add-to-group group-id="AndroidToolsGroup" />
+        </action>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Layout Inspector V2" extensions="liv2"
+                  implementationClass="com.android.tools.idea.editors.layoutInspectorv2.LayoutInspectorFileType" fieldName="INSTANCE"/>
+        <projectService serviceInterface="com.android.tools.idea.editors.layoutInspectorv2.AndroidLayoutInspectorService"
+                        serviceImplementation="com.android.tools.idea.editors.layoutInspectorv2.impl.AndroidLayoutInspectorServiceImpl" />
+        <fileEditorProvider implementation="com.android.layoutinspectorv2.LIV2EditorProvider"/>
+    </extensions>
 </idea-plugin>

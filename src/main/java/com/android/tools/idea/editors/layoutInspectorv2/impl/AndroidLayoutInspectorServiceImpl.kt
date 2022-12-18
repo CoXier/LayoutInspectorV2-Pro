@@ -17,7 +17,7 @@ package com.android.tools.idea.editors.layoutInspectorv2.impl
 
 import com.android.ddmlib.Client
 import com.android.tools.idea.editors.layoutInspectorv2.AndroidLayoutInspectorService
-import com.android.tools.idea.editors.layoutInspector.actions.LayoutInspectorAction
+import com.android.tools.idea.editors.layoutInspectorv2.actions.LayoutInspectorAction
 import com.intellij.openapi.project.Project
 
 class AndroidLayoutInspectorServiceImpl : AndroidLayoutInspectorService {
