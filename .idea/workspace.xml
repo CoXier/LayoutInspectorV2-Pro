@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d288c94a-b507-4141-9bec-c3ea6c131119" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/Icons.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/layoutinspectorv2/LIV2EditorProvider.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/icon.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/AndroidLayoutInspectorService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/AndroidLayoutInspectorService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorFileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorFileType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/actions/AndroidRunLayoutInspectorAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/actions/AndroidRunLayoutInspectorAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/impl/AndroidLayoutInspectorServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/impl/AndroidLayoutInspectorServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +155,7 @@
       <workItem from="1669782457335" duration="9663000" />
       <workItem from="1670244061622" duration="10752000" />
       <workItem from="1671280347550" duration="4007000" />
-      <workItem from="1671331428128" duration="8783000" />
+      <workItem from="1671331428128" duration="10388000" />
     </task>
     <servers />
   </component>
