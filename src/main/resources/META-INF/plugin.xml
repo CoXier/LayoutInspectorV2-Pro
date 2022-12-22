@@ -1,0 +1,23 @@
+<idea-plugin>
+    <id>com.jianxinli.layout-inspector-v2</id>
+    <name>LayoutInspectorV2</name>
+    <vendor email="justcoxier@gmail.com" url="https://github.com/CoXier">Jianxin Li</vendor>
+    <description>Legacy LayoutInspector using v2 protocol which is 100 faster than default v1 version.</description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+
+    <actions>
+        <action id="RunV2LegacyLayoutInspector" class="com.android.tools.idea.editors.layoutInspectorv2.actions.AndroidRunLayoutInspectorAction">
+            <add-to-group group-id="AndroidToolsGroup" />
+        </action>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Layout Inspector V2" extensions="liv2"
+                  implementationClass="com.android.tools.idea.editors.layoutInspectorv2.LayoutInspectorFileType" fieldName="INSTANCE"/>
+        <projectService serviceInterface="com.android.tools.idea.editors.layoutInspectorv2.AndroidLayoutInspectorService"
+                        serviceImplementation="com.android.tools.idea.editors.layoutInspectorv2.impl.AndroidLayoutInspectorServiceImpl" />
+        <fileEditorProvider implementation="com.android.layoutinspectorv2.LIV2EditorProvider"/>
+    </extensions>
+</idea-plugin>

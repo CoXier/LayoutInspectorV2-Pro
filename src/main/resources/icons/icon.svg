@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+    <defs>
+        <symbol height="16" id="svg_5" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+            <path d="m14.1,5.71l0,-2.29a1.52,1.52 0 0 0 -1.52,-1.52l-2.29,-0.01m3.81,8.4l0,2.28a1.52,1.52 0 0 1 -1.53,1.52l-2.28,0m-4.58,-12.2l-2.29,0.01a1.52,1.52 0 0 0 -1.51,1.53l0,2.28m3.81,8.39l-2.29,0a1.52,1.52 0 0 1 -1.52,-1.53l0,-2.28"
+                  fill="none" stroke="#6E6E6E" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.76"/>
+        </symbol>
+    </defs>
+    <g class="layer">
+        <title>Layer 1</title>
+        <use id="svg_6" transform="matrix(1.21395 0 0 1.2359 19.7077 12.1037)" x="-17.71" xlink:href="#svg_5"
+             y="-11.28"/>
+        <text fill="#389fd6" font-family="Monospace" font-size="10" font-style="italic" font-weight="bold" id="svg_7"
+              stroke="#c94848" stroke-width="0" text-anchor="middle" x="7.54" xml:space="preserve" y="10.81">v2</text>
+    </g>
+</svg>
