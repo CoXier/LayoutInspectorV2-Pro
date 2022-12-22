@@ -15,7 +15,6 @@
  */
 package com.android.tools.idea.editors.layoutInspectorv2;
 
-import com.google.common.annotations.VisibleForTesting;
 import com.android.ddmlib.Client;
 import com.android.layoutinspectorv2.LayoutInspectorBridge;
 import com.android.layoutinspectorv2.LayoutInspectorCaptureOptions;
@@ -23,14 +22,11 @@ import com.android.layoutinspectorv2.LayoutInspectorResult;
 import com.android.layoutinspectorv2.ProtocolVersion;
 import com.android.layoutinspectorv2.model.ClientWindow;
 import com.android.tools.analytics.UsageTracker;
-import com.android.tools.idea.flags.StudioFlags;
-import com.android.tools.idea.profiling.capture.Capture;
-import com.android.tools.idea.profiling.capture.CaptureService;
 import com.android.tools.idea.stats.AndroidStudioUsageTracker;
 import com.android.tools.idea.stats.UsageTrackerUtils;
+import com.google.common.annotations.VisibleForTesting;
 import com.google.wireless.android.sdk.stats.AndroidStudioEvent;
 import com.google.wireless.android.sdk.stats.LayoutInspectorEvent;
-import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.fileEditor.OpenFileDescriptor;
 import com.intellij.openapi.progress.ProgressIndicator;
@@ -38,15 +34,14 @@ import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.util.ui.UIUtil;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
-import java.util.List;
+import java.io.File;
 
 public class LayoutInspectorCaptureTask extends Task.Backgroundable {
-  private static final String TITLE = "Capture View Hierarchy";
+  private static final String TITLE = "Capture view hierarchy";
 
   @NotNull private final Client myClient;
   @NotNull private final ClientWindow myWindow;
@@ -54,8 +49,10 @@ public class LayoutInspectorCaptureTask extends Task.Backgroundable {
   private String myError;
   private byte[] myData;
 
+  private File file;
+
   public LayoutInspectorCaptureTask(@NotNull Project project, @NotNull Client client, @NotNull ClientWindow window) {
-    super(project, "Capturing View Hierarchy");
+    super(project, TITLE);
     myClient = client;
     myWindow = window;
   }
@@ -65,12 +62,12 @@ public class LayoutInspectorCaptureTask extends Task.Backgroundable {
     LayoutInspectorCaptureOptions options = new LayoutInspectorCaptureOptions();
     options.setTitle(myWindow.getDisplayName());
     ProtocolVersion version =
-      determineProtocolVersion(myClient.getDevice().getVersion().getApiLevel(), true);
-    options.setVersion(
-      version);
+      determineProtocolVersion(myClient.getDevice().getVersion().getApiLevel());
+
+    options.setVersion(version);
 
     // Capture view hierarchy
-    indicator.setText("Capturing View Hierarchy");
+    indicator.setText(TITLE);
     indicator.setIndeterminate(false);
 
     long startTimeMs = System.currentTimeMillis();
@@ -103,11 +100,15 @@ public class LayoutInspectorCaptureTask extends Task.Backgroundable {
     }
 
     myData = result.getData();
+
+    // write data to file
+    file = LayoutInspectorFileHelper.saveToFile(myClient, this.myProject, myData);
+
   }
 
   @VisibleForTesting
-  static ProtocolVersion determineProtocolVersion(int apiVersion, boolean v2Enabled) {
-    return apiVersion >= LayoutInspectorBridge.getV2_MIN_API() && v2Enabled ? ProtocolVersion.Version2 : ProtocolVersion.Version1;
+  static ProtocolVersion determineProtocolVersion(int apiVersion) {
+    return apiVersion >= LayoutInspectorBridge.getV2_MIN_API() ? ProtocolVersion.Version2 : ProtocolVersion.Version1;
   }
 
   @Override
@@ -117,21 +118,12 @@ public class LayoutInspectorCaptureTask extends Task.Backgroundable {
       return;
     }
 
-    CaptureService service = CaptureService.getInstance(myProject);
-    try {
-      Capture capture = service.createCapture(LayoutInspectorCaptureType.class, myData, service.getSuggestedName(myClient));
-      final VirtualFile file = capture.getFile();
-      file.refresh(true, false, () -> UIUtil.invokeLaterIfNeeded(() -> {
-        OpenFileDescriptor descriptor = new OpenFileDescriptor(myProject, file);
-        List<FileEditor> editors = FileEditorManager.getInstance(myProject).openEditor(descriptor, true);
+    if (file == null) {
+      Messages.showErrorDialog("Cannot save file", TITLE);
+      return;
+    }
 
-        editors.stream().filter(e -> e instanceof LayoutInspectorEditor).findFirst().ifPresent((editor) -> {
-          ((LayoutInspectorEditor)editor).setSources(myClient, myWindow);
-        });
-      }));
-    }
-    catch (IOException e) {
-      Messages.showErrorDialog("Error creating hierarchy view capture: " + e, TITLE);
-    }
+    VirtualFile virtualFile = LocalFileSystem.getInstance().refreshAndFindFileByIoFile(file);
+    FileEditorManager.getInstance(myProject).openEditor(new OpenFileDescriptor(myProject, virtualFile), true);
   }
 }
