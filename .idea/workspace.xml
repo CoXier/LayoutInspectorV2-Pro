@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d288c94a-b507-4141-9bec-c3ea6c131119" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorFileHelper.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/LayoutInspectorCaptureType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/actions/AndroidRunLayoutInspectorAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/android/tools/idea/editors/layoutInspectorv2/actions/AndroidRunLayoutInspectorAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,27 +115,10 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="layout-inspector-v2 [runIde]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--stacktrace" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="runIde" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Gradle.layout-inspector-v2 [runIde]" />
+      <item itemvalue="Gradle.layout-inspector-v2 [patchPluginXml]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.layout-inspector-v2 [runIde]" />
