@@ -105,9 +105,7 @@ public class LayoutInspectorPanel extends JPanel implements DataProvider, ImageC
 
     JPanel topPanel = new JPanel(new BorderLayout());
     topPanel.setBorder(IdeBorderFactory.createBorder(SideBorder.BOTTOM));
-    if (StudioFlags.LAYOUT_INSPECTOR_LOAD_OVERLAY_ENABLED.get()) {
-      topPanel.add(actionToolbarPanel, BorderLayout.WEST);
-    }
+    topPanel.add(actionToolbarPanel, BorderLayout.WEST);
     topPanel.add(toolbarPanel, BorderLayout.EAST);
     return topPanel;
   }

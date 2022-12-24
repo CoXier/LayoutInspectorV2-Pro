@@ -87,9 +87,7 @@ public class ViewNodeActiveDisplay extends JComponent {
     MyMouseAdapter adapter = new MyMouseAdapter();
     addMouseListener(adapter);
     addMouseMotionListener(adapter);
-    if (StudioFlags.LAYOUT_INSPECTOR_SUB_VIEW_ENABLED.get()) {
-      addDoubleClickListener();
-    }
+    addDoubleClickListener();
   }
 
   private void addDoubleClickListener() {
