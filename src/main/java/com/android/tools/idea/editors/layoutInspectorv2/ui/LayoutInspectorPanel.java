@@ -88,8 +88,8 @@ public class LayoutInspectorPanel extends JPanel implements DataProvider, ImageC
     ActionToolbar liActionToolbar = actionManager.createActionToolbar(
       "LiActionsToolbar", liActionGroup, true
     );
-    liActionToolbar.updateActionsImmediately();
     liActionToolbar.setTargetComponent(this);
+    liActionToolbar.updateActionsImmediately();
     JComponent actionToolbarPanel = liActionToolbar.getComponent();
     actionToolbarPanel.setName("LiActionsToolbar");
 
@@ -99,15 +99,13 @@ public class LayoutInspectorPanel extends JPanel implements DataProvider, ImageC
     );
     // Make sure toolbar is 'ready' before it's added to component hierarchy
     // to prevent ActionToolbarImpl.updateActionsImpl(boolean, boolean) from increasing popup size unnecessarily
-    actionToolbar.updateActionsImmediately();
     actionToolbar.setTargetComponent(this);
+    actionToolbar.updateActionsImmediately();
     JComponent toolbarPanel = actionToolbar.getComponent();
 
     JPanel topPanel = new JPanel(new BorderLayout());
     topPanel.setBorder(IdeBorderFactory.createBorder(SideBorder.BOTTOM));
-    if (StudioFlags.LAYOUT_INSPECTOR_LOAD_OVERLAY_ENABLED.get()) {
-      topPanel.add(actionToolbarPanel, BorderLayout.WEST);
-    }
+    topPanel.add(actionToolbarPanel, BorderLayout.WEST);
     topPanel.add(toolbarPanel, BorderLayout.EAST);
     return topPanel;
   }
@@ -242,6 +240,9 @@ public class LayoutInspectorPanel extends JPanel implements DataProvider, ImageC
 
     @Override
     public boolean canZoomOut() {
+      if (myScrollPane == null || myScrollPane.getHorizontalScrollBar() == null || myScrollPane.getVerticalScrollBar() == null) {
+        return false;
+      }
       return myScrollPane.getHorizontalScrollBar().isVisible() || myScrollPane.getVerticalScrollBar().isVisible();
     }
 

@@ -18,7 +18,6 @@ package com.android.tools.idea.editors.layoutInspectorv2.actions;
 import com.android.ddmlib.Client;
 import com.android.layoutinspectorv2.Icons;
 import com.android.tools.idea.editors.layoutInspectorv2.AndroidLayoutInspectorService;
-import com.android.tools.idea.ui.LayoutInspectorSettingsKt;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.components.ServiceManager;
@@ -39,7 +38,7 @@ public class AndroidRunLayoutInspectorAction extends AnAction {
 
   @Override
   public void update(AnActionEvent e) {
-    e.getPresentation().setVisible(!LayoutInspectorSettingsKt.getEnableLiveLayoutInspector());
+    e.getPresentation().setVisible(true);
     if (isDebuggerPaused(e.getProject())) {
       e.getPresentation().setDescription("Disable");
       e.getPresentation().setEnabled(false);

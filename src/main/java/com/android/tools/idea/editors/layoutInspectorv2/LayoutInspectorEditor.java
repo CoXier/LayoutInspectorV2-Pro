@@ -70,44 +70,6 @@ public class LayoutInspectorEditor extends UserDataHolderBase implements FileEdi
     public EditorNotificationPanel createNotificationPanel(@NotNull VirtualFile file,
                                                            @NotNull FileEditor fileEditor,
                                                            @NotNull Project project) {
-      if (fileEditor instanceof LayoutInspectorEditor && StudioFlags.DYNAMIC_LAYOUT_INSPECTOR_ENABLED.get()) {
-        EditorNotificationPanel panel = new EditorNotificationPanel();
-        panel.setText("Using API 29? Try out the new Live Layout Inspector.");
-
-        if (fileEditor.getUserData(HIDDEN_KEY) != null || PropertiesComponent.getInstance().isTrueValue(DISABLE_KEY)) {
-          return null;
-        }
-
-        panel.createActionLabel("Try it", () -> ShowSettingsUtil.getInstance().showSettingsDialog(
-          project, ExperimentalSettingsConfigurable.class, c -> {
-            AtomicReference<Runnable> runnableReference = new AtomicReference<>();
-            Runnable runnable = () -> {
-              JComponent component = c.createComponent();
-              if (component.getParent() == null) {
-                // The component isn't completely set up right away, and we need to be able to iterate up the hierarchy to get the
-                // search box. Reschedule the runnable until it's attached.
-                ApplicationManager.getApplication().invokeLater(runnableReference.get());
-                return;
-              }
-              SearchTextField textField = DataManager.getInstance().getDataContext(component).getData(SearchTextField.KEY);
-              if (textField != null) {  // shouldn't be null, but at least don't blow up if it is. We just won't get highlighting.
-                textField.setText("Enable Live Layout Inspector");
-              }
-            };
-            runnableReference.set(runnable);
-            ApplicationManager.getApplication().invokeLater(runnable, ModalityState.any());
-          }));
-        panel.createActionLabel("Hide notification", () -> {
-          fileEditor.putUserData(HIDDEN_KEY, "true");
-          update(file, project);
-        });
-        panel.createActionLabel("Don't show again", () -> {
-          PropertiesComponent.getInstance().setValue(DISABLE_KEY, "true");
-          update(file, project);
-        });
-
-        return panel;
-      }
       return null;
     }
 
@@ -204,5 +166,10 @@ public class LayoutInspectorEditor extends UserDataHolderBase implements FileEdi
 
   public void setSources(@Nullable Client client, @Nullable ClientWindow window) {
     myContext.setSources(client, window);
+  }
+
+  @Override
+  public @NotNull VirtualFile getFile() {
+    return myVirtualFile;
   }
 }

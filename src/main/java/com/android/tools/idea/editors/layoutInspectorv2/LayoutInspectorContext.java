@@ -129,9 +129,7 @@ public class LayoutInspectorContext implements Disposable, DataProvider, ViewNod
     myPropertiesTable = new PTable(myTableModel);
     myPropertiesTable.getColumnModel().getColumn(0).setMinWidth((int)(ToolWindowDefinition.DEFAULT_SIDE_WIDTH * 0.6));
     myPropertiesTable.setRendererProvider(LITableRendererProvider.getInstance());
-    if (StudioFlags.LAYOUT_INSPECTOR_EDITING_ENABLED.get()) {
-      myPropertiesTable.setEditorProvider(LITTableCellEditorProvider.INSTANCE);
-    }
+    myPropertiesTable.setEditorProvider(LITTableCellEditorProvider.INSTANCE);
     myPropertiesTable.setFillsViewportHeight(true);
     myPropertiesTable.getTableHeader().setReorderingAllowed(false);
     TableSpeedSearch propertiesSpeedSearch = new TableSpeedSearch(myPropertiesTable, (object, cell) -> {
@@ -164,12 +162,10 @@ public class LayoutInspectorContext implements Disposable, DataProvider, ViewNod
     // sub tree preview
     mySubtreePreviewMenuItem = new JMenuItem("Render subtree preview");
     mySubtreePreviewMenuItem.setVisible(false);
-    if (StudioFlags.LAYOUT_INSPECTOR_SUB_VIEW_ENABLED.get()) {
-      mySubtreePreviewMenuItem.setVisible(true);
-      mySubtreePreviewMenuItem.addActionListener(new RenderSubtreePreviewActionListener());
-      mySubtreePreviewMenuItem.setEnabled(myModel.isConnected());
-      myNodePopup.add(mySubtreePreviewMenuItem);
-    }
+    mySubtreePreviewMenuItem.setVisible(true);
+    mySubtreePreviewMenuItem.addActionListener(new RenderSubtreePreviewActionListener());
+    mySubtreePreviewMenuItem.setEnabled(myModel.isConnected());
+    myNodePopup.add(mySubtreePreviewMenuItem);
 
     Disposer.register(parentDisposable, this);
   }
@@ -230,9 +226,7 @@ public class LayoutInspectorContext implements Disposable, DataProvider, ViewNod
 
   @Override
   public void onNodeDoubleClicked(@NotNull ViewNode node) {
-    if (myModel.isConnected() && StudioFlags.LAYOUT_INSPECTOR_SUB_VIEW_ENABLED.get()) {
-      showSubView(node);
-    }
+    showSubView(node);
   }
 
   @Override

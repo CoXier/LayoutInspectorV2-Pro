@@ -22,7 +22,7 @@ dependencies {
 }
 
 intellij {
-    version.set("202.7660.26.42.7486908")
+    version.set("213.7172.25.2113.9014738")
     type.set("AI") // AI means Android Studio
     plugins.set(listOf("android"))
 }
