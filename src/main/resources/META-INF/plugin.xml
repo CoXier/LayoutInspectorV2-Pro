@@ -29,5 +29,7 @@
         <projectService serviceInterface="com.android.tools.idea.editors.layoutInspectorv2.AndroidLayoutInspectorService"
                         serviceImplementation="com.android.tools.idea.editors.layoutInspectorv2.impl.AndroidLayoutInspectorServiceImpl" />
         <fileEditorProvider implementation="com.android.layoutinspectorv2.LIV2EditorProvider"/>
+
+        <notificationGroup displayType="BALLOON" id="Layout Inspector V2 Pro"/>
     </extensions>
 </idea-plugin>

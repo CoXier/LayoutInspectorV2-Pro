@@ -88,7 +88,7 @@ public class LayoutInspectorEditor extends UserDataHolderBase implements FileEdi
   public JComponent getComponent() {
     if (myPanel == null) {
       try {
-        myContext = new LayoutInspectorContext(LayoutFileDataParser.parseFromFile(virtualToIoFile(myVirtualFile)), this);
+        myContext = new LayoutInspectorContext(myProject, LayoutFileDataParser.parseFromFile(virtualToIoFile(myVirtualFile)), this);
       }
       catch (IOException e) {
         return new JLabel(e.getLocalizedMessage(), SwingConstants.CENTER);

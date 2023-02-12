@@ -32,7 +32,6 @@ import com.android.tools.idea.editors.layoutInspectorv2.ptable.LITableRendererPr
 import com.android.tools.idea.editors.layoutInspectorv2.ui.RollOverTree;
 import com.android.tools.idea.editors.layoutInspectorv2.ui.ViewNodeActiveDisplay;
 import com.android.tools.idea.editors.layoutInspectorv2.ui.ViewNodeTreeRenderer;
-import com.android.tools.idea.flags.StudioFlags;
 import com.android.tools.idea.observable.collections.ObservableList;
 import com.android.tools.property.ptablev2.PTable;
 import com.android.tools.property.ptablev2.PTableItem;
@@ -40,13 +39,12 @@ import com.android.tools.property.ptablev2.PTableModel;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.wireless.android.sdk.stats.AndroidStudioEvent;
 import com.google.wireless.android.sdk.stats.LayoutInspectorEvent;
-import com.intellij.notification.Notification;
-import com.intellij.notification.NotificationGroup;
+import com.intellij.notification.NotificationGroupManager;
 import com.intellij.notification.NotificationType;
-import com.intellij.notification.Notifications;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.DataProvider;
 import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.JBCheckboxMenuItem;
 import com.intellij.openapi.ui.JBPopupMenu;
 import com.intellij.openapi.util.Disposer;
@@ -84,6 +82,10 @@ public class LayoutInspectorContext implements Disposable, DataProvider, ViewNod
 
   @NotNull
   private LayoutInspectorModel myModel;
+
+  @NotNull
+  private Project project;
+
   @Nullable
   private ViewNodeActiveDisplay myPreview;
 
@@ -115,7 +117,7 @@ public class LayoutInspectorContext implements Disposable, DataProvider, ViewNod
     return Logger.getInstance(LayoutInspectorContext.class);
   }
 
-  public LayoutInspectorContext(@NotNull LayoutFileData layoutParser, @NotNull Disposable parentDisposable) {
+  public LayoutInspectorContext(Project prject, @NotNull LayoutFileData layoutParser, @NotNull Disposable parentDisposable) {
     ViewNode root = layoutParser.getNode();
     BufferedImage image = layoutParser.getBufferedImage();
     assert (root != null && image != null);
@@ -399,10 +401,11 @@ public class LayoutInspectorContext implements Disposable, DataProvider, ViewNod
     }
   }
 
-  private static void createNotification(@NotNull String message, @NotNull NotificationType type) {
-    Notifications.Bus.notify(new Notification(
-      NotificationGroup.createIdWithTitle("Layout Inspector", AndroidBundle.message("android.ddms.actions.layoutinspector.notification.group")),
-                                              AndroidBundle.message("android.ddms.actions.layoutinspector.notification.title"), message, type, null));
+  private void createNotification(@NotNull String message, @NotNull NotificationType type) {
+    NotificationGroupManager.getInstance()
+            .getNotificationGroup("Layout Inspector V2 Pro")
+            .createNotification(message, type)
+            .notify(project);
   }
 
   private class RenderSubtreePreviewActionListener implements ActionListener {
