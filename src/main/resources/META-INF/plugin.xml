@@ -1,11 +1,21 @@
 <idea-plugin>
-    <id>com.jianxinli.layout-inspector-v2</id>
+    <id>com.eric-li.layout-inspector-v2</id>
     <name>LayoutInspectorV2</name>
-    <vendor email="justcoxier@gmail.com" url="https://github.com/CoXier">Jianxin Li</vendor>
+    <vendor email="justcoxier@gmail.com" url="https://github.com/CoXier">Eric Li</vendor>
     <description>Legacy LayoutInspector using v2 protocol which is 100 faster than default v1 version.</description>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
+
+    <idea-version since-build="202"/>
+
+    <change-notes><![CDATA[
+        <b>1.0.0</b>
+        <ul>
+            <li>init version for Layout-Inspector-V2</li>
+        </ul>
+        ]]>
+    </change-notes>
 
     <actions>
         <action id="RunV2LegacyLayoutInspector" class="com.android.tools.idea.editors.layoutInspectorv2.actions.AndroidRunLayoutInspectorAction">

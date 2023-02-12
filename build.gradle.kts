@@ -11,8 +11,8 @@ plugins {
     kotlin("jvm") version "1.7.21"
 }
 
-group = "com.jianxinli"
-version = "1.0.0-SNAPSHOT"
+group = "com.eric-li"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
