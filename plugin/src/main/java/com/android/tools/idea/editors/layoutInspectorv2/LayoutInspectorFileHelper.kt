@@ -1,9 +1,7 @@
 package com.android.tools.idea.editors.layoutInspectorv2
 
 import com.android.ddmlib.Client
-import com.android.tools.idea.util.toIoFile
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.vfs.LocalFileSystem
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*

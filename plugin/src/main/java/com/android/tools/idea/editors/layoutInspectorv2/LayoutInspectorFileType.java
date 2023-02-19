@@ -17,9 +17,8 @@ package com.android.tools.idea.editors.layoutInspectorv2;
 
 import com.android.layoutinspectorv2.Icons;
 import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.vfs.VirtualFile;
-import icons.StudioIcons;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

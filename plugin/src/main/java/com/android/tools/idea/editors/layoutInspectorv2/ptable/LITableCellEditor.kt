@@ -24,7 +24,8 @@ import javax.swing.JTable
 /**
  * Singleton passed to PTable to return [LITableCellEditor]
  */
-object LITTableCellEditorProvider : PTableCellEditorProvider {
+object LITTableCellEditorProvider :
+    PTableCellEditorProvider {
   private var myDefaultEditor: LITableCellEditor = LITableCellEditor()
 
   override fun getCellEditor(item: PTableItem, column: Int): PTableCellEditor = myDefaultEditor

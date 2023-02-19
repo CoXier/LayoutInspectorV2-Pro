@@ -17,7 +17,6 @@ package com.android.tools.idea.editors.layoutInspectorv2.ui;
 
 import com.android.layoutinspectorv2.model.DisplayInfo;
 import com.android.layoutinspectorv2.model.ViewNode;
-import com.android.tools.idea.flags.StudioFlags;
 import com.android.tools.idea.ui.MaterialColors;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Objects;

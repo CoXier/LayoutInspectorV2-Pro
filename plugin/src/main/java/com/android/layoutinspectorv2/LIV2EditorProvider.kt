@@ -14,7 +14,11 @@ class LIV2EditorProvider: FileEditorProvider, DumbAware {
         return p1.extension == LayoutInspectorFileType.EXT_LAYOUT_INSPECTOR
     }
 
-    override fun createEditor(p0: Project, p1: VirtualFile): FileEditor = LayoutInspectorEditor(p0, p1)
+    override fun createEditor(p0: Project, p1: VirtualFile): FileEditor =
+        LayoutInspectorEditor(
+            p0,
+            p1
+        )
 
     override fun getEditorTypeId(): String = "LayoutInspectorV2"
 

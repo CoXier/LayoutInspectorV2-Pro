@@ -19,7 +19,6 @@ import com.android.tools.idea.editors.layoutInspectorv2.LayoutInspectorContext;
 import com.google.common.annotations.VisibleForTesting;
 import com.android.tools.idea.editors.layoutInspectorv2.actions.LoadOverlayAction;
 import com.android.tools.idea.editors.layoutInspectorv2.actions.SetOverlayAlphaAction;
-import com.android.tools.idea.flags.StudioFlags;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.ui.IdeBorderFactory;
 import com.intellij.ui.ScrollPaneFactory;

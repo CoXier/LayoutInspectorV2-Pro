@@ -15,7 +15,6 @@
  */
 package com.android.tools.idea.editors.layoutInspectorv2.ptable;
 
-import com.android.tools.adtui.common.SwingCoordinate;
 import com.android.tools.idea.editors.layoutInspectorv2.ui.PropertiesTablePanel;
 import com.android.tools.property.ptablev2.PNameRenderer;
 import com.android.tools.property.ptablev2.PTable;
