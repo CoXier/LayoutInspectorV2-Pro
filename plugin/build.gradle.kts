@@ -7,15 +7,13 @@ plugins {
 group = "com.eric-li"
 version = "1.0.0"
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-}
-
 intellij {
     version.set("221.6008.13.2211.9514443")
     type.set("AI") // AI means Android Studio
     plugins.set(listOf("android"))
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
