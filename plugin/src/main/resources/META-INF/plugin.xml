@@ -2,7 +2,13 @@
     <id>com.eric-li.layout-inspector-v2</id>
     <name>LayoutInspectorV2-Pro</name>
     <vendor email="justcoxier@gmail.com" url="https://github.com/CoXier">Eric Li</vendor>
-    <description>Legacy LayoutInspector using v2 protocol which is 100 faster than default v1 version.</description>
+    <description><![CDATA[
+    <html>
+      <p><b>LayoutInspectorV2-Pro</b> is an Android Studio/IntelliJ plugin that enables developers to inspect the view hierarchy of their Android applications. The plugin builds on the functionality of the Legacy-Layout-LayoutInspector while offering significant improvements to speed and user experience.</p>
+      <p>Version 2 of the plugin is significantly faster than its predecessor, reducing the time required to inspect the view hierarchy and allowing developers to work more efficiently.
+      <P>With a more streamlined selection process, LayoutInspectorV2-Pro also makes it easier to select the desired view, improving the user experience and making the inspection process more intuitive.</p>
+    </html>
+  ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
