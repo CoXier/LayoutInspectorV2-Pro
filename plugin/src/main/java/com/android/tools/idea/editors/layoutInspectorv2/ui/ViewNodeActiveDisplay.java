@@ -317,13 +317,30 @@ public class ViewNodeActiveDisplay extends JComponent {
       newClipY2 = Math.min(clipY2, boxBottom);
     }
     if (newClipX1 < x && newClipX2 > x && newClipY1 < y && newClipY2 > y) {
+      ViewNode result = null;
       for (int i = node.getChildren().size() - 1; i >= 0; i--) {
         ViewNode child = node.getChildAt(i);
         ViewNode ret = updateSelection(child, x, y, firstNoDrawChild, newClipX1, newClipY1, newClipX2, newClipY2);
         if (ret != null) {
-          return ret;
+
+          if (result == null) {
+            result = ret;
+            continue;
+          }
+
+          int resultArea = result.getPreviewBox().width * result.getPreviewBox().height;
+          int retArea = ret.getPreviewBox().width * ret.getPreviewBox().height;
+
+          if (retArea < resultArea) {
+            result = ret;
+          }
         }
       }
+
+      if (result != null) {
+        return result;
+      }
+
     }
     if (boxpos.x < x && boxRight > x && boxpos.y < y && boxBottom > y) {
       if (node.getDisplayInfo().getWillNotDraw()) {
