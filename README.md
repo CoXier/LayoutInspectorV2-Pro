@@ -6,9 +6,9 @@ LayoutInspectorV2-Pro is an Android Studio/Intellij plugin that allows Android d
 
 ## Usage
 
-You can find the plugin in the Tools menu. 
+You can find the plugin in the Tools menu.
 
-![img_2.png](screenshots/img_2.png)
+<img src="screenshots/img_2.png" alt="your-image" width="249" height="502" />
 
 After the dump, LayoutInspectorV2-Pro generates a file with the `.liv2` extension, just like the `.li` file.
 
@@ -23,11 +23,13 @@ The following section explains these improvements in detail.
 
 ### Dump Speed
 
-LLI provides two ProtocolVersions: `ProtocolVersions.V1` and `ProtocolVersions.V2`. According to the [source code](https://cs.android.com/android/_/android/platform/frameworks/base/+/0d857b9028f2702ce439e13feccde8182d40e1e5), this feature was added in 2015. 
+LLI provides two ProtocolVersions: `ProtocolVersions.V1` and `ProtocolVersions.V2`. According to the [source code](https://cs.android.com/android/_/android/platform/frameworks/base/+/0d857b9028f2702ce439e13feccde8182d40e1e5), this feature was added in 2015.
+
 ![img.png](screenshots/img.png)
 
 LLI uses the V1 version by default to dump, but the V1 version is very slow. You may have seen a pop-up window warning of timeout.
-![img_1.png](screenshots/img_1.png)
+
+<img src="screenshots/img_1.png" alt="your-image" width="415" height="219" />
 
 Unfortunately, only internal Google engineers can use the V2 version. Therefore, LayoutInspectorV2-Pro uses the V2 version by default. I tested the dump speed of these two versions on my OnePlus 7 device with various numbers of views, and here are the results:
 
