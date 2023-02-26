@@ -38,6 +38,16 @@ Unfortunately, only internal Google engineers can use the V2 version. Therefore,
 | ProtocolVersions.V1 (ms) | 4101       | 5352       | 6577       |
 | ProtocolVersions.V2 (ms) | 625        | 724        | 837        |
 
+### Easier selection
+
+Many Android developers who use LLI may be confused by its default selection algorithm, which prioritizes the topmost view. However, in most cases, the sizes of areas should carry more weight when selecting a view.
+
+Consider the following scenario: there are two views, A and B, and B is on top of A. If you click the A area in the image panel, LLI may not select A because B is larger and covers A.
+
+<img src="screenshots/img_3.png" alt="your-image" width="806" height="594" />
+
+With LayoutInspectorV2-Pro, the sizes of areas between A and B are compared, and A is selected because it is smaller than B. This approach ensures that the most appropriate view is selected.
+
 ## Supported Versions
 
 LayoutInspectorV2-Pro should work with most Android Studio versions. The following Android Studio versions have been tested:
