@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">benchmark</string>
     <string name="dump_speed">dump_speed</string>
+    <string name="easier_selection">easier_selection</string>
 </resources>

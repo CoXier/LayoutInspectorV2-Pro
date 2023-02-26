@@ -8,6 +8,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Layoutinspectorv2">
         <activity
+            android:name=".EasierSelectionActivity"
+            android:exported="false" />
+        <activity
             android:name=".DumpSpeedActivity"
             android:exported="false" />
         <activity

@@ -13,5 +13,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.dump_speed).setOnClickListener {
             startActivity(Intent(this, DumpSpeedActivity::class.java))
         }
+        findViewById<View>(R.id.easier_selection).setOnClickListener {
+            startActivity(Intent(this, EasierSelectionActivity::class.java))
+        }
+
     }
 }
