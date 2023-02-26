@@ -1,4 +1,4 @@
-rootProject.name = "layout-inspector-v2"
+rootProject.name = "LayoutInspectorV2-Pro"
 include(":plugin")
 include(":benchmark")
 
