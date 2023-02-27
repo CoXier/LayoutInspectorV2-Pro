@@ -40,7 +40,7 @@ class LayoutInspectorCaptureOptions {
     }
 
     fun parse(json: String) {
-        val obj = JsonParser().parse(json).asJsonObject
+        val obj = JsonParser.parseString(json).asJsonObject
         version = ProtocolVersion.valueOf("Version${obj.get(VERSION).asString}")
         title = obj.get(TITLE).asString
     }
