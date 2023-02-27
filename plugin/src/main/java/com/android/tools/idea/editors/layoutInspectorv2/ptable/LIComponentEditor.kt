@@ -47,7 +47,7 @@ class LIComponentEditor {
 
   init {
     myTextField.addActionListener(ActionListener { this.textChanged(it) })
-    val fg = UIUtil.getTableSelectionForeground()
+    val fg = UIUtil.getTableSelectionForeground(true)
     val bg = UIUtil.getTableSelectionBackground(true)
     myPanel = JPanel(BorderLayout(if (SystemInfo.isMac) 0 else 2, 0))
     myPanel.foreground = fg
