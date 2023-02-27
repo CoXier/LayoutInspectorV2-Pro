@@ -5,12 +5,13 @@ plugins {
 }
 
 group = "com.eric-li"
-version = "1.0.2"
+version = "1.0.3"
 
 intellij {
     version.set("221.6008.13.2211.9514443")
     type.set("AI") // AI means Android Studio
     plugins.set(listOf("android"))
+    updateSinceUntilBuild.set(false)
 }
 
 java {

@@ -16,6 +16,10 @@
     <idea-version since-build="202"/>
 
     <change-notes><![CDATA[
+        <b>1.0.3</b>
+        <ul>
+            <li>feat: build since 202 instead of 221.</li>
+        </ul>
         <b>1.0.2</b>
         <ul>
             <li>feat: easier selection for view you want.</li>
