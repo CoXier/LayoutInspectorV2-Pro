@@ -59,7 +59,7 @@ public class AndroidRunLayoutInspectorAction extends AnAction {
     if (dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE) {
       Client client = dialog.getClient();
       if (client != null) {
-        ServiceManager.getService(project, AndroidLayoutInspectorService.class).getTask(project, client).queue();
+        project.getService(AndroidLayoutInspectorService.class).getTask(project, client).queue();
       }
       else {
         Logger.getInstance(AndroidRunLayoutInspectorAction.class).warn("Not launching layout inspector - no client selected");
