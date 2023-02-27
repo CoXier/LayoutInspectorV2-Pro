@@ -46,31 +46,7 @@ public class LayoutInspectorEditor extends UserDataHolderBase implements FileEdi
   private final Project myProject;
   private LayoutInspectorEditorPanel myPanel;
   private LayoutInspectorContext myContext;
-
-  public static class NewVersionNotificationProvider extends EditorNotifications.Provider<EditorNotificationPanel> {
-    private static Key<EditorNotificationPanel> KEY = Key.create("new.layout.inspector.notification");
-    private static final Key<String> HIDDEN_KEY = Key.create("new.layout.inspector.notification.hidden");
-    private static final String DISABLE_KEY = "new.layout.inspector.notification.disabled";
-
-    @NotNull
-    @Override
-    public Key<EditorNotificationPanel> getKey() {
-      return KEY;
-    }
-
-    @Nullable
-    @Override
-    public EditorNotificationPanel createNotificationPanel(@NotNull VirtualFile file,
-                                                           @NotNull FileEditor fileEditor,
-                                                           @NotNull Project project) {
-      return null;
-    }
-
-    private static void update(@NotNull VirtualFile file, @NotNull Project project) {
-      EditorNotifications.getInstance(project).updateNotifications(file);
-    }
-  }
-
+  
   public LayoutInspectorEditor(@NotNull Project project, @NotNull VirtualFile file) {
     myVirtualFile = file;
     myProject = project;
