@@ -11,7 +11,13 @@ intellij {
     version.set("221.6008.13.2211.9514443")
     type.set("AI") // AI means Android Studio
     plugins.set(listOf("android"))
-    updateSinceUntilBuild.set(false)
+}
+
+tasks {
+    patchPluginXml {
+        sinceBuild.set("202")
+        untilBuild.set("*")
+    }
 }
 
 java {

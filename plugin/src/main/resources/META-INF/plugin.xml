@@ -13,8 +13,6 @@
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
 
-    <idea-version since-build="202"/>
-
     <change-notes><![CDATA[
         <b>1.0.3</b>
         <ul>
