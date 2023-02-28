@@ -1,8 +1,21 @@
 # LayoutInspectorV2-Pro
+[![Version][badge:version]][plugin-versions]
+[![Downloads][badge:downloads]][plugin-homepage]
+
+
+[plugin-homepage]: https://plugins.jetbrains.com/plugin/21047-layoutinspectorv2-pro
+[plugin-versions]: https://plugins.jetbrains.com/plugin/21047-layoutinspectorv2-pro/versions
+[badge:version]: https://img.shields.io/jetbrains/plugin/v/21047.svg?style=flat-square&colorB=2196F3
+[badge:downloads]: https://img.shields.io/jetbrains/plugin/d/21047.svg?style=flat-square&colorB=5C6BC0
 
 LayoutInspectorV2-Pro is an Android Studio/Intellij plugin that allows Android developers to dump the view hierarchy. It is similar to the Legacy-Layout-LayoutInspector in some ways.
 
 > For convenience, LegacyLayoutInspector is abbreviated as LLI.
+
+## Installation
+<kbd>Preferences(Settings)</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search and find <b>"LayoutInspectorV2-Pro"</b></kbd> > <kbd>Install Plugin</kbd>
+
+Restart the **IDE** after installation.
 
 ## Usage
 
