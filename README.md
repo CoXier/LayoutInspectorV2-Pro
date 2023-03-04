@@ -17,13 +17,14 @@ LayoutInspectorV2-Pro is an Android Studio/Intellij plugin that allows Android d
 
 Restart the **IDE** after installation.
 
+<img src="screenshots/img_4.png" alt="your-image" width="700" height="460" />
+
+
 ## Usage
 
-You can find the plugin in the Tools menu.
+You can find the plugin in the Tools menu.After the dump, LayoutInspectorV2-Pro generates a file with the `.liv2` extension, just like the `.li` file.
 
 <img src="screenshots/img_2.png" alt="your-image" width="249" height="502" />
-
-After the dump, LayoutInspectorV2-Pro generates a file with the `.liv2` extension, just like the `.li` file.
 
 ## Why Use LayoutInspectorV2-Pro?
 
