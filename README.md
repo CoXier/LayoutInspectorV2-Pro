@@ -66,13 +66,14 @@ With LayoutInspectorV2-Pro, the sizes of areas between A and B are compared, and
 
 LayoutInspectorV2-Pro should work with most Android Studio versions. The following Android Studio versions have been tested:
 
-| Version                                       | Build Number              |
-|-----------------------------------------------|---------------------------|
-| Bumblebee 2021.1.1                            | 211.7628.21.2111.8092744  |
-| Chipmunk 2021.2.1 Patch 2                     | 212.5712.43.2112.8815526  |
-| Dolphin 2021.3.1                              | 213.7172.25.2113.9014738  |
-| Android Studio Electric Eel 2022.1.1 Patch 1  | 221.6008.13.2211.9514443  |
-| Flamingo 2022.2.1 Canary 10                   | 222.4459.24.2221.9409768  |
+| Version                       | Build Number             |
+|-------------------------------|--------------------------|
+| Bumblebee 2021.1.1            | 211.7628.21.2111.8092744 |
+| Chipmunk 2021.2.1 Patch 2     | 212.5712.43.2112.8815526 |
+| Dolphin 2021.3.1              | 213.7172.25.2113.9014738 |
+| Electric Eel 2022.1.1 Patch 1 | 221.6008.13.2211.9514443 |
+| Flamingo 2022.2.1 Canary 10   | 222.4459.24.2221.9409768 |
+| Giraffe  2022.3.1 Canary 8    | 223.8617.56.2231.9687552 |
 
 If you encounter any issues in any version, please report them.
 
