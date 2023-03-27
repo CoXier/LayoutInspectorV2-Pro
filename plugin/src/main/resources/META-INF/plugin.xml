@@ -14,6 +14,10 @@
     <depends>org.jetbrains.android</depends>
 
     <change-notes><![CDATA[
+        <b>1.0.4</b>
+        <ul>
+            <li>fix: fix view layoutParams not displaying properly.</li>
+        </ul>
         <b>1.0.3</b>
         <ul>
             <li>feat: build since 202 instead of 221.</li>
