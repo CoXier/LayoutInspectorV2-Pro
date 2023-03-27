@@ -118,6 +118,10 @@ class ViewNodeV2Parser {
         for (p in viewProperties.entries) {
             val fullName = getPropertyName(p.key)!!
             val value = p.value
+            if (fullName == "layoutParams") {
+                fixLayoutParamsProperties(p, properties, namedProperties)
+                continue
+            }
             if (fullName.startsWith("$META_KEY:$CHILD_KEY")) {
                 childrenProps[fullName] = value
             } else {
@@ -140,6 +144,37 @@ class ViewNodeV2Parser {
         // hide meta props
         val metaProps = node.groupedProperties.remove(META_KEY)
         addChildren(node, metaProps!!, childrenProps)
+    }
+
+    /**
+     * create a new category named "layoutParams" and put margin into it.
+     */
+    private fun fixLayoutParamsProperties(
+        p: Map.Entry<Short, Any>,
+        properties: MutableList<ViewProperty>,
+        namedProperties: MutableMap<String, ViewProperty>
+    ) {
+        val value = p.value
+        val propertyList = ArrayList<ViewProperty>()
+        if (value is Map<*, *>) {
+            val layoutParamsClass = value[3.toShort()]
+            val classProperty = ViewProperty("class", "class", "layoutParams", layoutParamsClass.toString())
+            propertyList.add(classProperty)
+            value.forEach { it
+                if (it.key is Short && it.key as Short in 101.toShort()..106.toShort()) {
+                    val name = getPropertyName(it.key as Short)
+                    val marginValue = it.value
+                    if (name != null && marginValue is Int && marginValue != Int.MIN_VALUE) {
+                        val property = ViewProperty(name, name, "layoutParams", marginValue.toString())
+                        propertyList.add(property)
+                    }
+                }
+            }
+        }
+        propertyList.forEach { property->
+            properties.add(property)
+            namedProperties[property.name] = property
+        }
     }
 
     private fun addChildren(
