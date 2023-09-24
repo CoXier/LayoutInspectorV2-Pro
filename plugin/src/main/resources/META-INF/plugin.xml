@@ -14,6 +14,10 @@
     <depends>org.jetbrains.android</depends>
 
     <change-notes><![CDATA[
+        <b>1.0.5</b>
+        <ul>
+            <li>fix: fix crash on Android Studio Hedgehog.</li>
+        </ul>
         <b>1.0.4</b>
         <ul>
             <li>fix: fix view layoutParams not displaying properly.</li>

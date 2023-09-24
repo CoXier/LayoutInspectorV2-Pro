@@ -23,7 +23,6 @@ import com.android.layoutinspectorv2.ProtocolVersion;
 import com.android.layoutinspectorv2.model.ClientWindow;
 import com.android.tools.analytics.UsageTracker;
 import com.android.tools.idea.stats.AndroidStudioUsageTracker;
-import com.android.tools.idea.stats.UsageTrackerUtils;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.wireless.android.sdk.stats.AndroidStudioEvent;
 import com.google.wireless.android.sdk.stats.LayoutInspectorEvent;
@@ -73,26 +72,6 @@ public class LayoutInspectorCaptureTask extends Task.Backgroundable {
     long startTimeMs = System.currentTimeMillis();
     LayoutInspectorResult result = LayoutInspectorBridge.captureView(myWindow, options);
     long captureDurationMs = System.currentTimeMillis() - startTimeMs;
-    UsageTracker.log(UsageTrackerUtils.withProjectId(
-      AndroidStudioEvent.newBuilder().setKind(AndroidStudioEvent.EventKind.LAYOUT_INSPECTOR_EVENT)
-        .setDeviceInfo(AndroidStudioUsageTracker.deviceToDeviceInfo(myClient.getDevice()))
-        .setLayoutInspectorEvent(LayoutInspectorEvent.newBuilder()
-          .setType(LayoutInspectorEvent.LayoutInspectorEventType.CAPTURE)
-          .setDurationInMs(captureDurationMs)
-          .setDataSize(result.getError().isEmpty() ? result.getData().length : 0)),
-      myProject));
-
-    UsageTracker.log(UsageTrackerUtils.withProjectId(
-      AndroidStudioEvent.newBuilder().setKind(AndroidStudioEvent.EventKind.LAYOUT_INSPECTOR_EVENT)
-        .setDeviceInfo(AndroidStudioUsageTracker.deviceToDeviceInfo(myClient.getDevice()))
-        .setLayoutInspectorEvent(LayoutInspectorEvent.newBuilder()
-          .setType(LayoutInspectorEvent.LayoutInspectorEventType.CAPTURE)
-          .setDurationInMs(captureDurationMs)
-          .setVersion(version.ordinal() + 1)
-          .setDataSize(result.getError().isEmpty()
-                       ? result.getData().length
-                       : 0)),
-        myProject));
     
     if (!result.getError().isEmpty()) {
       myError = result.getError();
