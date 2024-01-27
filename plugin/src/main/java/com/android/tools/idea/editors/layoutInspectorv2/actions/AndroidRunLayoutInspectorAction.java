@@ -20,7 +20,6 @@ import com.android.layoutinspectorv2.Icons;
 import com.android.tools.idea.editors.layoutInspectorv2.AndroidLayoutInspectorService;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
@@ -33,7 +32,7 @@ public class AndroidRunLayoutInspectorAction extends AnAction {
   public AndroidRunLayoutInspectorAction() {
     super("Layout Inspector V2",
             "V2 protocol is faster than v1.",
-            Icons.getLogo());
+            Icons.getLOGO());
   }
 
   @Override

@@ -50,7 +50,7 @@ public class LayoutInspectorFileType implements FileType {
   @Nullable
   @Override
   public Icon getIcon() {
-    return Icons.getLogo();
+    return Icons.getLOGO();
   }
 
   @Override

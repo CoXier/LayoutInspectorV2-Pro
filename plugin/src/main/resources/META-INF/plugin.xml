@@ -14,6 +14,10 @@
     <depends>org.jetbrains.android</depends>
 
     <change-notes><![CDATA[
+        <b>1.0.6</b>
+        <ul>
+            <li>feat: support Android Studio Jellyfish.</li>
+        </ul>
         <b>1.0.5</b>
         <ul>
             <li>fix: fix crash on Android Studio Hedgehog.</li>

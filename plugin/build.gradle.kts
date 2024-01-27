@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.eric-li"
-version = "1.0.5"
+version = "1.0.6"
 
 intellij {
     version.set("221.6008.13.2211.9514443")

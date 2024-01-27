@@ -15,6 +15,7 @@
  */
 package com.android.tools.idea.editors.layoutInspectorv2.actions
 
+import com.android.layoutinspectorv2.Icons
 import com.android.tools.analytics.UsageTracker
 import com.android.tools.idea.editors.layoutInspectorv2.ui.ViewNodeActiveDisplay
 import com.google.wireless.android.sdk.stats.AndroidStudioEvent
@@ -31,7 +32,6 @@ import com.intellij.openapi.fileChooser.FileTypeDescriptor
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.vfs.VirtualFile
-import icons.StudioIcons
 import java.awt.Image
 import java.io.IOException
 import javax.imageio.ImageIO
@@ -41,7 +41,7 @@ import javax.swing.JComponent
  * Lets the user choose an image to overlay on top of the captured view to compare the app's visual against design mocks.
  */
 class LoadOverlayAction(private val myPreview: ViewNodeActiveDisplay) :
-    AnAction(ACTION_ID, "Overlay Image", StudioIcons.LayoutInspector.LOAD_OVERLAY), CustomComponentAction {
+    AnAction(ACTION_ID, "Overlay Image", Icons.LOAD_OVERLAY), CustomComponentAction {
   companion object {
     @JvmField
     val ACTION_ID = "Load Overlay"
@@ -58,11 +58,11 @@ class LoadOverlayAction(private val myPreview: ViewNodeActiveDisplay) :
     super.update(e)
     if (e == null) return
     if (myPreview.hasOverlay()) {
-      e.presentation.icon = StudioIcons.LayoutInspector.CLEAR_OVERLAY
+      e.presentation.icon = Icons.CLEAR_OVERLAY
       e.presentation.text = "Clear Overlay"
     }
     else {
-      e.presentation.icon = StudioIcons.LayoutInspector.LOAD_OVERLAY
+      e.presentation.icon = Icons.LOAD_OVERLAY
       e.presentation.text = ACTION_ID
     }
   }
