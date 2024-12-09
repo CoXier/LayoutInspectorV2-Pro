@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -59,6 +60,7 @@ public final class GetClientWindowsTask extends Task.Backgroundable {
       else if (myWindows.isEmpty()) {
         myError = "No active windows displayed by " + myClient.getClientData().getPackageName();
       }
+      Collections.reverse(myWindows);
     }
     catch (IOException e) {
       myError = "Unable to obtain list of windows used by " + myClient.getClientData().getPackageName() + "\nError: " + e.getMessage();
