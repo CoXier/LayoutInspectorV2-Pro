@@ -78,25 +78,25 @@ internal class ViewNodeV2Decoder(private val mBuf: ByteBuffer) {
         constructor(
             seen: Byte,
             pos: Int
-        ) : super(String.format("Unexpected byte %c seen at position %d", seen.toChar(), pos))
+        ) : super(String.format("Unexpected byte %c seen at position %d", seen.toInt().toChar(), pos))
 
         constructor(msg: String) : super(msg)
     }
 
     companion object {
         // Prefixes for simple primitives. These match the JNI definitions.
-        const val SIG_BOOLEAN: Byte = 'Z'.toByte()
-        const val SIG_BYTE: Byte = 'B'.toByte()
-        const val SIG_SHORT: Byte = 'S'.toByte()
-        const val SIG_INT: Byte = 'I'.toByte()
-        const val SIG_LONG: Byte = 'J'.toByte()
-        const val SIG_FLOAT: Byte = 'F'.toByte()
-        const val SIG_DOUBLE: Byte = 'D'.toByte()
+        const val SIG_BOOLEAN: Byte = 'Z'.code.toByte()
+        const val SIG_BYTE: Byte = 'B'.code.toByte()
+        const val SIG_SHORT: Byte = 'S'.code.toByte()
+        const val SIG_INT: Byte = 'I'.code.toByte()
+        const val SIG_LONG: Byte = 'J'.code.toByte()
+        const val SIG_FLOAT: Byte = 'F'.code.toByte()
+        const val SIG_DOUBLE: Byte = 'D'.code.toByte()
 
         // Prefixes for some commonly used objects
-        const val SIG_STRING: Byte = 'R'.toByte()
+        const val SIG_STRING: Byte = 'R'.code.toByte()
 
-        const val SIG_MAP: Byte = 'M'.toByte() // a map with an short key
+        const val SIG_MAP: Byte = 'M'.code.toByte() // a map with an short key
         const val SIG_END_MAP: Short = 0
     }
 }

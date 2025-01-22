@@ -1,26 +1,33 @@
 plugins {
     id("java")
     id("org.jetbrains.intellij") version "1.10.1"
-    kotlin("jvm") version "1.7.21"
+    kotlin("jvm") version "1.9.0"
 }
 
 group = "com.eric-li"
-version = "1.0.6"
+version = "1.0.7"
 
 intellij {
-    version.set("221.6008.13.2211.9514443")
+    version.set("242.23726.103.2422.12816248")
     type.set("AI") // AI means Android Studio
     plugins.set(listOf("android"))
 }
 
 tasks {
     patchPluginXml {
-        sinceBuild.set("211")
+        sinceBuild.set("242")
         untilBuild.set("")
+    }
+
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
     }
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }

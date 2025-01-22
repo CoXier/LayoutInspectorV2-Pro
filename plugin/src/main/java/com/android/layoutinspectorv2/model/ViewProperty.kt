@@ -38,16 +38,14 @@ data class ViewProperty(val fullName: String, val name: String, val category: St
         if (other !is ViewProperty) {
             return false
         }
-
-        val other = other as ViewProperty?
-        return !(category != other!!.category || name != other.name)
+        return category == other.category && name == other.name
     }
 
     override fun hashCode(): Int {
         var result = fullName.hashCode()
         result = 31 * result + name.hashCode()
         result = 31 * result + (category?.hashCode() ?: 0)
-        result = 31 * result + (value?.hashCode() ?: 0)
+        result = 31 * result + value.hashCode()
         return result
     }
 
