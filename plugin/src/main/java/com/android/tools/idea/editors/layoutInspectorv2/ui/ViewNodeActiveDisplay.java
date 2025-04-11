@@ -25,8 +25,9 @@ import com.intellij.ui.paint.LinePainter2D;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import org.intellij.images.options.GridOptions;
@@ -79,12 +80,15 @@ public class ViewNodeActiveDisplay extends JComponent {
   // flag to tell next render to update bound boxes
   private boolean updateBounds = false;
 
+  private int mSelectionIndex = 0;
+
   public ViewNodeActiveDisplay(@NotNull ViewNode root, @Nullable Image preview) {
     mRoot = root;
     mPreview = preview;
 
     MyMouseAdapter adapter = new MyMouseAdapter();
     addMouseListener(adapter);
+    addMouseWheelListener(adapter);
     addMouseMotionListener(adapter);
     addDoubleClickListener();
   }
@@ -283,80 +287,87 @@ public class ViewNodeActiveDisplay extends JComponent {
     g.drawRect(box.x, box.y, box.width, box.height);
   }
 
-  @Nullable
-  private ViewNode getNode(MouseEvent e) {
-    int x = e.getX() - mDrawShiftX;
-    int y = e.getY() - mDrawShiftY;
-
-    if (!mRoot.getPreviewBox().contains(x, y)) {
-      return null;
-    }
-    return updateSelection(mRoot, x, y, new ViewNode[1], 0, 0,
-                           mRoot.getPreviewBox().width, mRoot.getPreviewBox().height);
+  private int getViewportX(MouseEvent e) {
+    return e.getX() - mDrawShiftX;
   }
 
-  @Nullable
-  private ViewNode updateSelection(@NotNull ViewNode node, int x, int y, @NotNull ViewNode[] firstNoDrawChild,
-                                   int clipX1, int clipY1, int clipX2, int clipY2) {
+  private int getViewportY(MouseEvent e) {
+    return e.getY() - mDrawShiftY;
+  }
+
+  private ViewNode getNode(MouseEvent e) {
+    List<ViewNode> nodes = getNodes(e);
+
+    if (mSelectionIndex < 0) {
+      mSelectionIndex = 0;
+    }
+
+    if (mSelectionIndex >= nodes.size()) {
+      mSelectionIndex = nodes.size() - 1;
+    }
+
+    return nodes.isEmpty() ? null : nodes.get(mSelectionIndex);
+  }
+
+  @NotNull
+  private List<ViewNode> getNodes(MouseEvent e) {
+    int x = getViewportX(e);
+    int y = getViewportY(e);
+
+    if (!mRoot.getPreviewBox().contains(x, y)) {
+      return Collections.emptyList();
+    }
+
+    return findNodesByPosition(mRoot, x, y);
+  }
+
+  @NotNull
+  private List<ViewNode> findNodesByPosition(@NotNull ViewNode node, int x, int y) {
+    HashSet<ViewNode> tmp = new HashSet<>();
+    Rectangle viewport = mRoot.getPreviewBox();
+
+    findNodesByPosition(node, x, y, 0, 0, viewport.width, viewport.height, tmp);
+
+    List<ViewNode> nodes = new ArrayList<>(tmp);
+    nodes.sort((a, b) -> {
+      int sizeA = a.getPreviewBox().width * a.getPreviewBox().height;
+      int sizeB = b.getPreviewBox().width * b.getPreviewBox().height;
+
+      return sizeA - sizeB;
+    });
+
+    return nodes;
+  }
+
+  private void findNodesByPosition(@NotNull ViewNode node, int x, int y, int clipX1, int clipY1, int clipX2, int clipY2, Set<ViewNode> output) {
     if (!node.isDrawn()) {
-      return null;
+      return;
     }
-    boolean wasFirstNoDrawChildNull = firstNoDrawChild[0] == null;
-    Rectangle boxpos = node.getPreviewBox();
 
-    int boxRight = boxpos.x + boxpos.width;
-    int boxBottom = boxpos.y + boxpos.height;
-    int newClipX1 = clipX1;
-    int newClipY1 = clipY1;
-    int newClipX2 = clipX2;
-    int newClipY2 = clipY2;
+    Rectangle bounds = node.getPreviewBox();
+
+    int right = bounds.x + bounds.width;
+    int bottom = bounds.y + bounds.height;
+
     if (node.getDisplayInfo().getClipChildren()) {
-      newClipX1 = Math.max(clipX1, boxpos.x);
-      newClipY1 = Math.max(clipY1, boxpos.y);
-      newClipX2 = Math.min(clipX2, boxRight);
-      newClipY2 = Math.min(clipY2, boxBottom);
+      clipX1 = Math.max(clipX1, bounds.x);
+      clipY1 = Math.max(clipY1, bounds.y);
+      clipX2 = Math.min(clipX2, right);
+      clipY2 = Math.min(clipY2, bottom);
     }
-    if (newClipX1 < x && newClipX2 > x && newClipY1 < y && newClipY2 > y) {
-      ViewNode result = null;
-      for (int i = node.getChildren().size() - 1; i >= 0; i--) {
-        ViewNode child = node.getChildAt(i);
-        ViewNode ret = updateSelection(child, x, y, firstNoDrawChild, newClipX1, newClipY1, newClipX2, newClipY2);
-        if (ret != null) {
 
-          if (result == null) {
-            result = ret;
-            continue;
-          }
-
-          int resultArea = result.getPreviewBox().width * result.getPreviewBox().height;
-          int retArea = ret.getPreviewBox().width * ret.getPreviewBox().height;
-
-          if (retArea < resultArea) {
-            result = ret;
-          }
-        }
-      }
-
-      if (result != null) {
-        return result;
-      }
-
+    if (x < clipX1 || x > clipX2 || y < clipY1 || y > clipY2) {
+      return;
     }
-    if (boxpos.x < x && boxRight > x && boxpos.y < y && boxBottom > y) {
-      if (node.getDisplayInfo().getWillNotDraw()) {
-        if (firstNoDrawChild[0] == null) {
-          firstNoDrawChild[0] = node;
-        }
-        return null;
-      }
-      else {
-        if (wasFirstNoDrawChildNull && firstNoDrawChild[0] != null) {
-          return firstNoDrawChild[0];
-        }
-        return node;
-      }
+
+    if (bounds.contains(x, y)) {
+      output.add(node);
     }
-    return null;
+
+    for (int i = 0; i < node.getChildren().size(); i++) {
+      ViewNode child = node.getChildAt(i);
+      findNodesByPosition(child, x, y, clipX1, clipY1, clipX2, clipY2, output);
+    }
   }
 
   public void setZoomFactor(float zoomFactor) {
@@ -430,11 +441,15 @@ public class ViewNodeActiveDisplay extends JComponent {
 
     @Override
     public void mouseEntered(MouseEvent e) {
+      mSelectionIndex = 0;
       setHoverNode(getNode(e));
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
+      if (mHoverNode == null || !mHoverNode.getPreviewBox().contains(getViewportX(e), getViewportY(e))) {
+        mSelectionIndex = 0;
+      }
       setHoverNode(getNode(e));
     }
 
@@ -450,6 +465,21 @@ public class ViewNodeActiveDisplay extends JComponent {
       if (clicked != null) {
         setSelectedNode(clicked);
       }
+    }
+
+    @Override
+    public void mouseWheelMoved(MouseWheelEvent e) {
+      if (mHoverNode == null) {
+        return;
+      }
+
+      if (e.getWheelRotation() > 0) {
+        mSelectionIndex--;
+      } else {
+        mSelectionIndex++;
+      }
+
+      setHoverNode(getNode(e));
     }
   }
 
