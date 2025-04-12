@@ -46,7 +46,7 @@ class LIComponentEditor {
     get() = property?.value
 
   init {
-    myTextField.addActionListener(ActionListener { this.textChanged(it) })
+    myTextField.addActionListener { textChanged() }
     val fg = UIUtil.getTableSelectionForeground(true)
     val bg = UIUtil.getTableSelectionBackground(true)
     myPanel = JPanel(BorderLayout(if (SystemInfo.isMac) 0 else 2, 0))
@@ -55,7 +55,7 @@ class LIComponentEditor {
     myPanel.add(myTextField)
   }
 
-  private fun textChanged(event: ActionEvent) {
+  private fun textChanged() {
     property!!.setValue(myTextField.text)
   }
 }
