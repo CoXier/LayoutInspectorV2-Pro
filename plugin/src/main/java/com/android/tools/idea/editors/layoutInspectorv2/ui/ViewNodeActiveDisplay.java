@@ -204,9 +204,12 @@ public class ViewNodeActiveDisplay extends JComponent {
       (int)(info.getHeight() * newScaleY * drawScale)
     );
 
+    float adjustedLeftShift = l - info.getScrollX() * newScaleX;
+    float adjustedTopShift = t - info.getScrollY() * newScaleY;
+
     if (!node.isLeaf()) {
       for (ViewNode child : node.getChildren()) {
-        calculateNodeBounds(child, child.displayInfo, l, t, newScaleX, newScaleY, drawScale);
+        calculateNodeBounds(child, child.displayInfo, adjustedLeftShift, adjustedTopShift, newScaleX, newScaleY, drawScale);
       }
     }
   }
